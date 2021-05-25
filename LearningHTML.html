@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Learning HTML</title>
+<style>
+    .button {
+        border: none;
+        color: white;
+        padding: 16px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+    }
+    .buttonr {
+        background-color: white;
+        color: black;
+        border: 2px solid red;
+    }
+    .buttonr:hover {
+        background-color: red;
+        color:white;
+    }
+    .buttono {
+        background-color: white;
+        color: black;
+        border: 2px solid orange;
+    }
+    .buttono:hover {
+        background-color: orange;
+        color:white;
+    }
+    .buttony {
+        background-color: white;
+        color: black;
+        border: 2px solid yellow;
+    }
+    .buttony:hover {
+        background-color: yellow;
+        color:white;
+    }
+    .buttong {
+        background-color: white;
+        color: black;
+        border: 2px solid green;
+    }
+    .buttong:hover {
+        background-color: green;
+        color:white;
+    }
+    .buttonb {
+        background-color: white;
+        color: black;
+        border: 2px solid blue;
+    }
+    .buttonb:hover {
+        background-color: blue;
+        color:white;
+    }
+    .buttonp {
+        background-color: white;
+        color: black;
+        border: 2px solid purple;
+    }
+    .buttonp:hover {
+        background-color: purple;
+        color:white;
+    }
+    .buttonblack {
+        background-color: white;
+        color: black;
+        border: 2px solid black;
+    }
+    .buttonblack:hover {
+        background-color: black;
+        color: white;
+    }
+</style>
+<script>
+    function eleven() {
+        document.write(5 + 6);
+    }
+    function windowsalert() {
+        window.alert(Math.floor(Math.random() * 100) + 1);
+    }
+    function consolelog() {
+        console.log(5 + 6);
+    }
+    function windowprint() {
+        window.print();
+    }
+    function changeColor(newColor) {
+        var elem = document.getElementById("colorvariable");
+        elem.style.color = newColor;
+    }
+    function reset() {
+        return "Reset";
+    }
+</script>
+</head>
+
+<body id="colorvariable">
+<h1>Learning HTML</h1>
+<hr>
+<p>HTML is the main programing language for developing webpages.</p>
+<p>Function list is linked here <a href="https://w3schools.com/tags/defaults.asp" title="W3School.com">W3School</a></p>
+<hr>
+<button type="button" onclick="eleven()">Button</button><br>
+<button type="button" onclick="windowsalert()">Random Button</button><br>
+<button type="button" onclick="consolelog()">ConsoleLog Button</button><br>
+<button type="reset" onclick="reset()">Reset Button</button><br>
+<button type="button" onclick="windowprint()">Print Button</button><br>
+<hr>
+<button type="button" onclick="document.getElementById('demo').innerHTML = Date()">Click to display Date and Time</button>
+<p id="demo"></p>
+<hr>
+<p id="colorvariable">More advanced button utilizing classes</p>
+<button class="button buttonr" style="color:red;" onclick="changeColor('red');">Red</button>
+<button class="button buttono" style="color:orange;" onclick="changeColor('orange');">Orange</button>
+<button class="button buttony" style="color:yellow;" onclick="changeColor('yellow');">Yellow</button>
+<button class="button buttong" style="color:green;" onclick="changeColor('green');">Green</button>
+<button class="button buttonb" style="color:blue;" onclick="changeColor('blue');">Blue</button>
+<button class="button buttonp" style="color:purple;" onclick="changeColor('purple');">Purple</button>
+<button class="button buttonblack" style="color: black;" onclick="changeColor('black');">Black</button>
+<hr>
+<p>Form function.</p>
+<form>
+    <label for="fname">First name:</label>
+    <input type="text" id="fname" name="fname"><br><br>
+    <label for="lname">Last name:</label>
+    <input type="text" id="lname" name="lname"><br><br>
+    <input type="submit" value="Submit">
+</form><br>
+<form>
+    <input type="checkbox" name="box1" value="Box 1">
+    <label for="box1">Box 1</label><br>
+    <input type="checkbox" name="box2" value="Box 2">
+    <label for="box2">Box 2</label><br>
+    <input type="checkbox" name="box3" value="Box 3">
+    <label for="box3">Box 3</label><br>
+    <input type="submit" value="Submit">
+</form><br>
+<form>
+    <input type="radio" name="choice1" value="Choice 1">
+    <label for="choice1">Choice 1</label><br>
+    <input type="radio" name="choice2" value="Choice 2">
+    <label for="choice2">Choice 2</label><br>
+    <input type="radio" name="choice3" value="Choice 3">
+    <label for="choice3">Choice 3</label><br>
+    <input type="submit" value="Submit">
+</form><br>
+<hr>
+<p title="Cascading Style Sheet">CSS stands for Cascading Style Sheet.</p>
+<hr>
+<!--JavaScript code is inserted between two script arguments
+-->
+
+<p id="thirtyfive">FONT.
+    <script>
+        function thirtyfivepoint() {
+            document.getElementById("thirtyfive").style.fontSize = "35px";
+        }
+    </script>
+<button type="button" onclick="thirtyfivepoint()">Change font size</button>
+</p>
+<hr>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slashLearning/enter</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar__container">
+          <a href="index.html" id="navbar__logo">slashLearning</a>
+          <div class="navbar__toggle" id="mobile-menu">
+             <span class="bar"></span> 
+             <span class="bar"></span> 
+             <span class="bar"></span> 
+          </div>
+          <ul class="navbar__menu">
+            <li class="navbar__item">
+              <a href="index.html" class="navbar__links" id="home-page">Home</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- Enter Home Page -->
+      <div class="enter" id="home">
+        <div class="enter__container">
+          <div class="enter__content--img" id="enter--img">
+            <img src="https://free4kwallpapers.com/uploads/originals/2016/02/09/troll-face-meme-wallpaper.jpg" alt="" width="75%" height="75%" class="enter--img">
+          </div>
+          <div class="enter__form">
+            <form action="enter.html" class="enter__form" method="POST">
+              <h1 class="enter__formheader">Enter Here</h1>
+              <p>First Name: <input class="enter__form" type="text" name="firstname" value="" placeholder="First name"></p><br>
+              <p>Last Name: <input class="enter__form" type="text" name="lastname" value="" placeholder="Last name"></p><br>
+              <p>Email: <input class="enter__form" type="text" name="mail" value="" placeholder="Your e-mail"></p><br>
+              <p>Subject: <input class="enter__form" type="text" name="subject" value="slashLearning e-mail" placeholder="Subject"></p><br>
+              <p>Message: <textarea class="enter__form" name="message" id="enter__form" placeholder="Message"></textarea></p><br>
+              <p><input class="enter__form" type="submit" value="Submit"/></p>
+            </form>
+          </div>
+        </div>
+      </div>
+
+<!-- Footer -->
+<div class="footer" id="footer">
+    <div class="footer__container">
+      <section class="social__media">
+        <div class="social__media--wrap">
+          <div class="footer__logo">
+            <a href="#home" id="footer__logo">slashLearning</a>
+          </div>
+          <p class="website__rights">© slashLearning 2021. All rights reserved</p>
+        </div>
+      </section>
+    </div>
+  </div>
+
+      <script src="app.js"></script>
+</body>
+</html>

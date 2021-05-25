@@ -1,0 +1,145 @@
+---
+title: "R studio and Markdown Notes"
+author: "Andrew Meiners"
+date: "2/17/2021"
+output:
+  html_document:
+    df_print: paged
+  pdf_document:
+    latex_engine: xelatex
+lang: en-us
+fontsize: 12pt
+geometry: margin=1in
+number_section: yes
+abstact: Notes regarding how to use R Studio.
+---
+
+```{r setup, include=TRUE, echo = TRUE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE,
+                      include = TRUE
+                      )
+```
+
+\tableofcontents
+
+```{r, results='hide'}
+install.packages("stargazer", repos = "http://cran.rstudio.com")
+install.packages("dplyr", repos = "http://cran.rstudio.com")
+install.packages("tidyr", repos = "http://cran.rstudio.com")
+install.packages("ggplot2", repos = "http://cran.rstudio.com")
+install.packages("ggvis", repos = "http://cran.rstudio.com")
+install.packages("rlg", repos = "http://cran.rstudio.com")
+install.packages("KableExtra", repos = "http://cran.rstudio.com")
+```
+
+Within this document is all of my notes on how to use R studio and how to write in the language of 'R'. R studio is an application that easily allows users to write in 'R' and interact that code with a number of other languages. These interactions allow users to create websites, graphics, regression data, presentation, and much more all around statistics. 'R' is a language primarily used by statisticians and economics in predicting statistically significant outcomes of any given data set, along with giving all of the normal statistical values of any given data set. There are many Packages that hold extra tools and information for R studio that will need to installed for a variety of desired outputs from the system. 
+
+# Getting Started
+
+Before using r studio, some other applications will need to be installed for proper use. Install MikTeX to allow r studio to output pdf documents. Install RTools in order to install some packages. Install Mendeley for quick and easy referencing and bibliography for papers.
+
+Another good idea, if this is your first time using r studio, is to open 'tools' at the top in the ribbon. On the bottom select 'global options...' and chose a different theme for the environment. When first opening r studio there will be 4 screens divided in the application, these can be altered in global options. The top left window is where code is written to be saved. The bottom left is where you will find a live console for r, a terminal for the system, and running extensions. Go to 'file' in the ribbon and select 'new file', then 'R Markdown'. From there you give your project file a title and chose the format in which it will be shown. The application MikTeX is required for pdf output, or 'knitting', which is to compile the code into the output file.
+
+## Installing Packages
+
+In order to install a package the function "install.packages()". After the installation the package will need to be called into use using the function "library()".
+
+```{r, include=TRUE, echo=TRUE, results='hide'}
+install.packages("tidyverse", repos = "http://cran.rstudio.com")
+```
+
+Useful packages to install:
+
+* stargazer - "Produces LaTeX code, HTML/CSS code and ASCII text for well-formatted tables that hold regression analysis results from several models side-by-side, as well as summary statistics."
+* tidyverse - "An opinionated collection of R packages designed for data science that share an underlying design philosophy, grammar, and data structures."
+* dplyr - "Essential shortcuts for sub setting, summarizing, rearranging, and joining together data sets."
+* tidyr - "Tools for changing the layout of your data sets. Use the gather and spread functions to convert your data into the tidy format, the layout R likes best."
+* ggplot2 - "R's famous package for making beautiful graphics."
+* ggvis - "Interactive, web based graphics built with the grammar of graphics."
+* rgl - "Interactive 3D visualizations with R.
+* kableExtra - formating tables.
+
+## R Markdown
+
+The file that this text is being written to is known as a markdown file, saved as a ".rmd" file type. R Markdown converts text and 'R' code into professional documents, presentations, and web pages. There are many quirks when working in R Markdown and there are many ways to manipulate the document. Near the stop, above the "---" is what is known as the YAML. This sets the global options for the document. This includes the output file type, name, date, and other useful options. When outputting to either word, html, or pdf the YAML will need to be set to function with the appropriate parameters. The YAML parameters for pdf documents used include geometry to set the margins, font.size to set the font size, and lang for language, abstract, df_print to set the default printing method, and latex_engine to set the latex engine.
+
+The YAML also includes the ability to manipulate the pdf output document using latex functions. Simple use header-includes to include latex functions.
+
+The syntax for R Markdown is very straight forward and easy to use. "Plain text" will start as a new paragraph. Putting words withing different symbols will yield differing outputs for the text. One * will make the text *italics*. Two * will make the text **bold**. The "#" will create a header, the more of them used, the less important the header. To create a link use "[link](www.rstudio.com)". More information on syntax can be found at [link](https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf).
+
+In order to write an equation correctly into a document the equation must be written with proper syntax and formatting, enclosed within two '$'. Here is and example, 
+
+$$\widehat{\text{First Day Percentage Change}} = \beta_0 + \beta_1 (amFDVT) + \beta_2 (amISO) + \beta_3 (prNSR) +$$
+$$ \beta_4 (prPOSOTFD) + \beta_5 (dvVCB) + \beta_6 (dvNYSE) + \beta_7 (dvUndrP) + \beta_8 (dvMon)$$
+
+### Chunks
+
+In order to run 'R' code in Markdown, 'R' code must be within a R Chunk. These chunks allow the code to be either shown in the document or not, along with its outputs. The keyboard shortcut for creating a R Chunk is "ctl-alt-i". In the header of these chunks lay the area in which parameter options may be implemented,
+
+* include - TRUE or FALSE, "will run the chunk but not include the chunk in the final document."
+* echo - TRUE or FALSE, "will show to code in the final document."
+* warning - TRUE or FALSE, "will show warnings for chunk."
+* results - "If 'hide', knitr will not display the code’s results in the final document. If 'hold', knitr will delay displaying all output pieces until the end of the chunk. If 'asis', knitr will pass through results without reformatting them (useful if results return raw HTML, etc.)" Use 'asis' for stargazer chunks.
+* fig.align - 'left','right','center'
+* fig.cap - Creates a caption
+* fig.height,fig.width - change figure height and width.
+* fig.path - Creates a saved file for chunk output.
+
+# Using R
+
+R Studio allows users the ability to use 'R' for a variety of reasons that aid in either showing statistically significant predictions about the future or for proving the relationships between variables. 
+
+## Using R for Financial modeling
+
+Financial modeling is the main real world use of 'R'. One of the best packages to install into R Studio is **quantmod**. This package, developed by joshuaulrich, is the quantitative financial modeling framework. Quantmod works with a variety of sources. Currently available src methods are: yahoo, google, MySQL, FRED,  csv,  R Data,and oanda.   For  example,  FRED (Federal Reserve  Economic Data),  is  a data base of 20,070 U.S. economic time series [link](http://research.stlouisfed.org/fred2/).
+
+The following chunk is used to show the installation and implementation of quantmod. This also shows one of the most important functions of the package, *getSymbols()*, which imports data from a variety of sources regarding any particular stock, given that that stock is traded on any major stock exchange.
+
+```{r, results='hide'}
+install.packages("quantmod", repos = "https://cran.rstudio.com")
+library(quantmod)
+getSymbols("SPY", src ="yahoo")
+```
+
+This will get a data frame including the dates for each entry, the daily open, close, high, low, volume, and adjusted. different sources where the data is pulled may yield more or less results.
+
+```{r}
+Sys.time()
+summary(SPY)
+```
+
+```{r}
+head(SPY)
+```
+
+If you would rather get the current quote for a stock, the function **getQuote()** is used.
+
+```{r}
+Sys.time()
+getQuote("SPY", src="yahoo")
+```
+
+Quantmod has a function that creates a great visualization of the data.
+
+```{r, fig.align='center'}
+chartSeries(SPY, type = c("line"))
+```
+
+```{r, include=FALSE, echo=FALSE, results='hide'}
+chartSeries(SPY, TA=NULL)
+barChart(SPY)
+addMACD()
+addBBands()
+addCCI()
+addADX()
+addCMF()
+addROC()
+addRSI()
+```
+
+
+
+
+
