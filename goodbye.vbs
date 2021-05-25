@@ -1,0 +1,1 @@
+x=msgbox("GoodBye . . . ",0+16,"Message to previous owner")
